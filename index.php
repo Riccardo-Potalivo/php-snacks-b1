@@ -1,4 +1,5 @@
 <?php
+// snack 1
 
 $partite = [
     [
@@ -25,9 +26,16 @@ $partite = [
         "punti_casa" => "46",
         "punti_ospite" => "75",
     ],
-]
+];
 
-    ?>
+// snack 2
+if (!isset($_GET['name']) || strlen($_GET['name']) > 3) {
+    $name = false;
+} else {
+    $name = true;
+}
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,6 +58,20 @@ $partite = [
                 <?php echo "{$match["squadra_casa"]} - {$match["squadra_ospite"]} | {$match["punti_casa"]} - {$match["punti_ospite"]}; " ?>
             </div>
         <?php } ?>
+    </div>
+    <!-- snack 2 -->
+    <div class="container mt-5">
+        <h2>Snack 2</h2>
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Email address</label>
+                <input type="text" class="form-control" id="name" name="name">
+                <?php if ($name) { ?>
+                    <div id="emailHelp" class="form-text">minimo 4 caratteri</div>
+                <?php } ?>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
 </body>
