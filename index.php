@@ -41,6 +41,12 @@ if (!isset($_GET['mail']) || str_contains(($_GET['mail']), '@') && str_contains(
     $mail = true;
 }
 
+if (!isset($_GET['age']) || is_numeric($_GET['age'])) {
+    $age = false;
+} else {
+    $age = true;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +87,19 @@ if (!isset($_GET['mail']) || str_contains(($_GET['mail']), '@') && str_contains(
                 <?php if ($mail) { ?>
                     <div class="form-text">deve contenere @ e .</div>
                 <?php } ?>
+
+                <label for="age" class="form-label">age</label>
+                <input type="text" class="form-control" id="age" name="age">
+                <?php if ($age) { ?>
+                    <div class="form-text">deve essere un numero</div>
+                <?php } ?>
+
             </div>
+            <?php if ($name && $mail && $age) { ?>
+                <div class="alert alert-danger">Accesso negato</div>
+            <?php } else { ?>
+                <div class="alert alert-success">Accesso riuscito</div>
+            <?php } ?>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
