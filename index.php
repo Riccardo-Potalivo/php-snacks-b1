@@ -1,6 +1,33 @@
 <?php
 
-?>
+$partite = [
+    [
+        "squadra_casa" => "Atlanta Hawks",
+        "squadra_ospite" => "Oklahoma City Thunder",
+        "punti_casa" => "50",
+        "punti_ospite" => "45",
+    ],
+    [
+        "squadra_casa" => "Charlotte Hornets",
+        "squadra_ospite" => "Chicago Bulls",
+        "punti_casa" => "37",
+        "punti_ospite" => "44",
+    ],
+    [
+        "squadra_casa" => "Cleveland Cavaliers",
+        "squadra_ospite" => "Denver Nuggets",
+        "punti_casa" => "37",
+        "punti_ospite" => "82",
+    ],
+    [
+        "squadra_casa" => "Milwaukee Bucks",
+        "squadra_ospite" => "Washington Wizards",
+        "punti_casa" => "46",
+        "punti_ospite" => "75",
+    ],
+]
+
+    ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +41,16 @@
 </head>
 
 <body>
+    <!-- snack 1 -->
+    <div class="container">
+        <h2>Snack 1</h2>
+        <?php
+        foreach ($partite as $match) { ?>
+            <div>
+                <?php echo "{$match["squadra_casa"]} - {$match["squadra_ospite"]} | {$match["punti_casa"]} - {$match["punti_ospite"]}; " ?>
+            </div>
+        <?php } ?>
+    </div>
 
 </body>
 
