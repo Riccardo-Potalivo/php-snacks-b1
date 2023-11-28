@@ -35,6 +35,12 @@ if (!isset($_GET['name']) || strlen($_GET['name']) > 3) {
     $name = true;
 }
 
+if (!isset($_GET['mail']) || str_contains(($_GET['mail']), '@') && str_contains(($_GET['mail']), '.')) {
+    $mail = false;
+} else {
+    $mail = true;
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -64,10 +70,16 @@ if (!isset($_GET['name']) || strlen($_GET['name']) > 3) {
         <h2>Snack 2</h2>
         <form>
             <div class="mb-3">
-                <label for="name" class="form-label">Email address</label>
+                <label for="name" class="form-label">Name</label>
                 <input type="text" class="form-control" id="name" name="name">
                 <?php if ($name) { ?>
-                    <div id="emailHelp" class="form-text">minimo 4 caratteri</div>
+                    <div class="form-text">minimo 4 caratteri</div>
+                <?php } ?>
+
+                <label for="mail" class="form-label">Mail</label>
+                <input type="text" class="form-control" id="mail" name="mail">
+                <?php if ($mail) { ?>
+                    <div class="form-text">deve contenere @ e .</div>
                 <?php } ?>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
